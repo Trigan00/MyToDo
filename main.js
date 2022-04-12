@@ -14,7 +14,7 @@ if(localStorage.getItem('todo')){ //если в памяти что то леж�
 }
 
 addButton.addEventListener('click', function(){ //эта функция сработает когда будет нажата кнопка добавления задачи
-  
+    if(!addMessage.value) return // если ничего не написано то функция не выполняется
     let newToDo = { // объект который хранит задачу (это каждая новая задача)
         ToDo: addMessage.value, // Описание задчи
         checked: false, // Состояние задчи
@@ -23,16 +23,20 @@ addButton.addEventListener('click', function(){ //эта функция сраб
     todolist.push(newToDo) //Закидывает новую задачу в список задч
     displayMessages() //вызов функции, которая выводит задчи на экран 
     localStorage.setItem('todo', JSON.stringify(todolist)) //Сохраняется список задч
+    addMessage.value = ''
 
 })
 
 function displayMessages(){ //функция, которая выводит задчи на экран 
+    if(todolist.length === 0) todo.innerHTML = '' //если в массиве ничего нет то ничегг не показзывать
     let displayMessage = '' //переменная которая показывает задчи
     todolist.forEach((item, index) => { //перебор всех задач из массива задач
         displayMessage += ` 
         <li>
             <input type='checkbox' id='item_${index}' ${item.checked ? 'checked' : ''}>
             <label for='item_${index}'>${item.ToDo}</label>
+            <input class = "delate" onclick="delateTask(${index})" type="button" value="">
+            <hr>
         </li>
         ` // Прибавляет новые задчи
         todo.innerHTML = displayMessage; //выводит задачи на экран
@@ -50,3 +54,21 @@ todo.addEventListener('change', (event) =>{ //сработает, когда с�
         }
     })
 })
+
+todo.addEventListener('contextmenu', (event)=>{
+    event.preventDefault()
+    todolist.forEach((item, i) => {
+        if(item.ToDo === event.target.innerHTML){
+            todolist.splice(i, 1)   
+            displayMessages();
+            localStorage.setItem('todo', JSON.stringify(todolist))
+        }     
+    })
+})
+
+
+const delateTask = (index)=>{
+    todolist.splice(index, 1)
+    displayMessages();
+    localStorage.setItem('todo', JSON.stringify(todolist))
+}

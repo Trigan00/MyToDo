@@ -64,4 +64,20 @@ ul {
     text-align: center;
     font-size: 24px;
 }
-  
+
+hr{
+    border: 1px solid #abb7cc;
+}
+
+.delate{
+    margin: 5px;
+    float: right;
+    height: 15px;
+    width: 15px;
+    appearance: none;
+    border: 0;
+    border-radius: 2px;
+    background-color: #b8c9da;
+    cursor: pointer;
+    background-image: url("./img/trash.png");
+}
