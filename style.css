@@ -10,20 +10,39 @@
     
 }
 
-input[type=text] {
+/* input[type=text] {
     margin-top: 15px;
     width: 100%;
-    padding: 10px 0px 10px 0;
+    padding: 10px;
     border: 0px solid #ffffff;
     border-radius: 5px;
+    box-sizing: border-box;
+    height: 40px;
+    min-height: 40px;
+} */
+
+.textarea{
+    margin-top: 15px;
+    font-size: 18px;
+    font-family: Arial;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    border: 0px solid #ffffff;
+    resize: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 40px;
+    min-height: 40px;
 }
 
-input[type="text"]:focus {
+.textarea:focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
 }
 
 button {
+    font-family: Arial;
     margin-top: 10px;
     cursor: pointer;
     margin: 0 auto;
@@ -49,29 +68,36 @@ button:hover {
     color: white;
     font-size: 20px;
     border-radius: 10px;
+    font-family: Arial;
 }
 
-li {
-    list-style-type: none; 
+.todo {
+    font-size: 18px;
 }
 
-ul {
-    margin-left: 0; 
-    padding-left: 0; 
+.wrapper{
+    display: grid;
+    grid-template-columns: 23px auto 20px;
 }
+
+.item{
+    white-space: pre-line;
+}
+
 
 .TasksWord{
+    font-family: Arial;
     text-align: center;
     font-size: 24px;
 }
 
 hr{
+    width: 100%;
     border: 1px solid #abb7cc;
 }
 
 .delate{
     margin: 5px;
-    float: right;
     height: 15px;
     width: 15px;
     appearance: none;
