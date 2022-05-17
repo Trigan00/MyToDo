@@ -1,5 +1,3 @@
-//Даров Владик
-
 let addMessage = document.querySelector('.textarea') //находит поле ввода задачи
 let addButton = document.querySelector('.add') //находит кнопку добавления задачи
 let todo = document.querySelector('.todo') //находит список задач
